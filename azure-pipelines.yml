@@ -11,8 +11,8 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '46ebd7d1-1842-409e-beca-efded6322644'
-  imageRepository: '$(Build.Repository.Name)/$(Build.SourceBranchName)'
+  dockerRegistryServiceConnection: 'demoregistryLKLV'
+  imageRepository: '$(Build.Repository.Name)/$(Build.SourceBranch)'
   containerRegistry: 'demoregistrylklv.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -38,3 +38,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: CopyFiles@2
+      displayName: Copy to k8s/ to $(Build.ArtifactStagingDirectory)
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: k8s/*
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
