@@ -39,10 +39,17 @@ stages:
         tags: |
           $(tag)
 
+    
     - task: CopyFiles@2
-      displayName: Copy to k8s/ to $(Build.ArtifactStagingDirectory)
       inputs:
-        SourceFolder: '$(Build.SourcesDirectory)'
-        Contents: k8s/*
-        TargetFolder: '$(Build.ArtifactStagingDirectory)'
-
+        SourceFolder: 'k8s'
+        Contents: '**'
+        TargetFolder: ' $(build.artifactstagingdirectory)/k8s'
+        CleanTargetFolder: true
+        
+    
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(build.artifactstagingdirectory)'
+        artifact: 'pipeline-artifacts'
+        publishLocation: 'pipeline'

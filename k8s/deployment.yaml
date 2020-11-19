@@ -13,7 +13,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: $(dockerRegistryServiceConnection).azurecr.io/$(Build.Repository.Name)/$(Build.SourceBranch)/$(tag)
+      - image: #{dockerRegistryServiceConnection}#.azurecr.io/#{Build.Repository.Name}#/#{(Build.SourceBranch}#/#{tag}#
         name: hello-world
         ports:
         - containerPort: 8080
