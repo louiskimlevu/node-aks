@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - image: __docker-container-url__/__image-name__:#{Build.BuildId}#
-        name: hello-world}
+        name: hello-world
         ports:
         - containerPort: 8080
 
