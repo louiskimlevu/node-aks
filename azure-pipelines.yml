@@ -11,11 +11,11 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: 'demoregistryLKLV'
-  imageRepository: '$(Build.Repository.Name)/$(Build.SourceBranch)'
-  containerRegistry: 'demoregistrylklv.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+- dockerRegistryServiceConnection: 'demoregistryLKLV'
+- imageRepository: '$(Build.Repository.Name)/$(Build.SourceBranch)'
+- containerRegistry: 'demoregistrylklv.azurecr.io'
+- dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+- tag: '$(Build.BuildId)'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
