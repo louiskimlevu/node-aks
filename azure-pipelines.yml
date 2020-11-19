@@ -12,7 +12,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '46ebd7d1-1842-409e-beca-efded6322644'
-  imageRepository: '$(Build.Repository.Name)/$(Build.SourceBranch)'
+  imageRepository: '$(Build.Repository.Name)/$(Build.SourceBranchName)'
   containerRegistry: 'demoregistrylklv.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
