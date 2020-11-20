@@ -13,7 +13,7 @@ spec:
         app: hello-world
     spec:
       containers:
-      - image: __docker-container-url__/__image-name__:#{Build.BuildId}#
+      - image: louiskimlevu/node-aks:#{Build.BuildId}#
         name: hello-world
         ports:
         - containerPort: 8080
